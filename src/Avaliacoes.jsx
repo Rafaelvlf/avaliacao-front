@@ -208,11 +208,12 @@ export default function Avaliacoes({ token }) {
               </thead>
               <tbody>
                 {itens.map((item, i) => (
-                  <><tr key={item.id ?? i}>
+                  <tr key={item.id ?? i}>
                     {COLUNAS.map((col) => (
                       <td key={col.nome}>{formatar(item[col.nome], col.tipo)} </td>
                     ))}
-                  </tr><button className="btn btn-secundario" onClick={deletar(item.id)}>Deletar</button></>
+                    <td> <button className="btn btn-secundario" onClick={deletar(item.id)}>Deletar</button> </td>
+                    </tr>
                 ))}
               </tbody>
             </table>
