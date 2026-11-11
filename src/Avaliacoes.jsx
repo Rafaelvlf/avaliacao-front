@@ -5,7 +5,7 @@ import { API_URL, RECURSO, TITULO, TITULO_FORM, CAMPOS_FORM, COLUNAS } from "./c
 const formVazio = () =>
   Object.fromEntries(CAMPOS_FORM.map((campo) => [campo.nome, ""]));
 
-export default function Avaliacoes({ token, isAdmin }) {
+export default function Avaliacoes({ token }) {
   const [itens, setItens] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -147,8 +147,7 @@ export default function Avaliacoes({ token, isAdmin }) {
       {error && <div className="erro">{error}</div>}
       {sucesso && <div className="sucesso">{sucesso}</div>}
 
-      {/* Formulario so aparece para ADMIN (o back tambem bloqueia com 403) */}
-      {isAdmin && (
+      { (
         <div className="card">
           <h2>{TITULO_FORM}</h2>
           <form onSubmit={handleSubmit} className="form">
