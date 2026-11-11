@@ -212,7 +212,7 @@ export default function Avaliacoes({ token }) {
                     {COLUNAS.map((col) => (
                       <td key={col.nome}>{formatar(item[col.nome], col.tipo)} </td>
                     ))}
-                    <td> <button className="btn btn-secundario" onClick={deletar(item.id)}>Deletar</button> </td>
+                    {/* <td> <button className="btn btn-secundario" onClick={deletar(item.id)}>Deletar</button> </td> */}
                     </tr>
                 ))}
               </tbody>
