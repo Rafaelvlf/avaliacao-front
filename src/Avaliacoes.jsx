@@ -28,7 +28,7 @@ export default function Avaliacoes({ token }) {
     }
   };
 
-  // ---------- GET /avaliacoes ----------
+  // ---------- GET /tarefas ----------
   const listar = async () => {
     try {
       setLoading(true);
@@ -56,8 +56,32 @@ export default function Avaliacoes({ token }) {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+  
+  // ---------- Delete /tarefas ----------
+  const deletar = async (id) => {
+      try {
+        setLoading(true);
+        setError("");
 
-  // ---------- POST /avaliacoes ----------
+        const response = await fetch(`${API_URL}/${RECURSO}/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Authorization": `Bearer ${token}`,
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(await lerErro(response, "Erro ao deletar"));
+        }
+
+       } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+  // ---------- POST /tarefas ----------
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -186,7 +210,7 @@ export default function Avaliacoes({ token }) {
                 {itens.map((item, i) => (
                   <tr key={item.id ?? i}>
                     {COLUNAS.map((col) => (
-                      <td key={col.nome}>{formatar(item[col.nome], col.tipo)}</td>
+                      <td key={col.nome}>{formatar(item[col.nome], col.tipo)} <button className="btn btn-secundario" onClick={deletar(item.id)}>Deletar</button></td>
                     ))}
                   </tr>
                 ))}
