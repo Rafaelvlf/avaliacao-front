@@ -26,7 +26,7 @@ export const TITULO_FORM = "Nova tarefa";
 // tipo: "text" | "email" | "number" | "textarea" | "date" | "datetime-local" | "select"
 // Para "select", informe opcoes: [{ valor: "X", label: "X" }, ...]
 export const CAMPOS_FORM = [
-  { nome: "Titulo", label: "Título da tarefa", tipo: "text", obrigatorio: true },
+  { nome: "titulo", label: "Título da tarefa", tipo: "text", obrigatorio: true },
   { nome: "prioridade", label: "Prioridade (0 a 10)", tipo: "number", min: 0, max: 10, step: 0.5, obrigatorio: true },
   { nome: "descricao", label: "Descricao", tipo: "textarea" },
 ];
