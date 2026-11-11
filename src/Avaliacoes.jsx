@@ -58,28 +58,28 @@ export default function Avaliacoes({ token }) {
   };
   
   // ---------- Delete /tarefas ----------
-  const deletar = async (id) => {
-      try {
-        setLoading(true);
-        setError("");
+  // const deletar = async (id) => {
+  //     try {
+  //       setLoading(true);
+  //       setError("");
 
-        const response = await fetch(`${API_URL}/${RECURSO}/${id}`, {
-          method: "DELETE",
-          headers: {
-            "Authorization": `Bearer ${token}`,
-          },
-        });
+  //       const response = await fetch(`${API_URL}/${RECURSO}/${id}`, {
+  //         method: "DELETE",
+  //         headers: {
+  //           "Authorization": `Bearer ${token}`,
+  //         },
+  //       });
 
-        if (!response.ok) {
-          throw new Error(await lerErro(response, "Erro ao deletar"));
-        }
+  //       if (!response.ok) {
+  //         throw new Error(await lerErro(response, "Erro ao deletar"));
+  //       }
 
-       } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+  //      } catch (err) {
+  //       setError(err.message);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
   // ---------- POST /tarefas ----------
   const handleSubmit = async (e) => {
