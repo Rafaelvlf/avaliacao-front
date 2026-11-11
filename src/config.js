@@ -16,28 +16,28 @@ export const ROLES_CLAIM = "https://social-insper.com/roles";
 // O front chama /api/... e o vite.config.js (local) ou vercel.json (Vercel)
 // redireciona para o back-end. Nao precisa colocar o IP aqui.
 export const API_URL = "/api";
-export const RECURSO = "avaliacoes"; // vira /api/avaliacoes
+export const RECURSO = "tarefas"; // vira /api/tarefas
 
 // ---------- Textos da tela ----------
-export const TITULO = "Avaliações";
-export const TITULO_FORM = "Nova avaliação";
+export const TITULO = "Tarefas";
+export const TITULO_FORM = "Nova tarefa";
 
 // ---------- Campos do formulario de cadastro ----------
 // tipo: "text" | "email" | "number" | "textarea" | "date" | "datetime-local" | "select"
 // Para "select", informe opcoes: [{ valor: "X", label: "X" }, ...]
 export const CAMPOS_FORM = [
-  { nome: "emailAvaliado", label: "Email do avaliado", tipo: "email", obrigatorio: true },
-  { nome: "nota", label: "Nota (0 a 10)", tipo: "number", min: 0, max: 10, step: 0.5, obrigatorio: true },
-  { nome: "comentarios", label: "Comentários", tipo: "textarea" },
+  { nome: "Titulo", label: "Título da tarefa", tipo: "text", obrigatorio: true },
+  { nome: "prioridade", label: "Prioridade (0 a 10)", tipo: "number", min: 0, max: 10, step: 0.5, obrigatorio: true },
+  { nome: "descricao", label: "Descricao", tipo: "textarea" },
 ];
 
 // ---------- Colunas da tabela de listagem ----------
 // tipo "data" formata datas no padrao brasileiro
 export const COLUNAS = [
   { nome: "id", label: "ID" },
-  { nome: "emailAvaliador", label: "Avaliador" },
-  { nome: "emailAvaliado", label: "Avaliado" },
-  { nome: "nota", label: "Nota" },
-  { nome: "comentarios", label: "Comentários" },
-  { nome: "dataAvaliacao", label: "Data", tipo: "data" },
+  { nome: "emailCriador", label: "Criador" },
+  { nome: "titulo", label: "Titulo" },
+  { nome: "prioridade", label: "Prioridade" },
+  { nome: "descricao", label: "Descricao" },
+  { nome: "dataCriacao", label: "Data", tipo: "data" },
 ];
